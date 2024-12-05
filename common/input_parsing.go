@@ -29,7 +29,7 @@ func ParseDoubleListInt(input string) (left, right []int) {
 	return left, right
 }
 
-func Parse2dArrayInt(input string) ([][]int) {
+func Parse2dArrayIntSplit(input string) ([][]int) {
 	lines := strings.Split(input, "\n")
 
 	out := make([][]int, len(lines))
@@ -43,6 +43,20 @@ func Parse2dArrayInt(input string) ([][]int) {
 			}
 
 			out[i] = append(out[i], val)
+		}
+	}
+
+	return out
+}
+
+func Parse2dArrayRune(input string) ([][]rune) {
+	lines := strings.Split(input, "\n")
+
+	out := make([][]rune, len(lines))
+
+	for i, line := range lines {
+		for _, value := range line {
+			out[i] = append(out[i], value)
 		}
 	}
 

@@ -28,7 +28,7 @@ var increasing = map[int]struct{}{1: {}, 2: {}, 3: {}}
 var decreasing = map[int]struct{}{-1: {}, -2: {}, -3: {}}
 
 func part1Func(input string) any {
-	lines := common.Parse2dArrayInt(input)
+	lines := common.Parse2dArrayIntSplit(input)
 
 	total := 0
 
@@ -47,7 +47,7 @@ func part1Func(input string) any {
 
 
 func part2Func(input string) any {
-	lines := common.Parse2dArrayInt(input)
+	lines := common.Parse2dArrayIntSplit(input)
 
 	total := 0
 
