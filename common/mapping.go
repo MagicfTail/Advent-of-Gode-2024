@@ -67,3 +67,16 @@ func InterMap[T any](in []T, mapFunc func(T, T)T) []T {
 
 	return out
 }
+
+func SumBoolMatrix(in [][]bool) int {
+	total := 0
+	for _, inner := range in {
+		for _, val := range inner {
+			if val {
+				total++
+			}
+		}
+	}
+
+	return total
+}
