@@ -2,6 +2,7 @@ package common
 
 import (
 	"fmt"
+	"strconv"
 )
 
 func ZipMap[T, G any](left, right []T, mapFunc func(a, b T)G) ([]G, error) {
@@ -22,8 +23,7 @@ func MapIgnoreErr[T, G any](in []T, mapFunc func(a T)(G, error)) ([]G) {
 	out := make([]G, 0, len(in))
 
 	for _, element := range in {
-		value, _ := mapFunc(element)
-		out = append(out, value)
+		out = append(out, PanicErr(element, mapFunc))
 	}
 
 	return out
@@ -80,3 +80,17 @@ func SumBoolMatrix(in [][]bool) int {
 
 	return total
 }
+
+func PanicErr[T , G any](in T, inFunc func(T)(G, error)) G {
+	val, err := inFunc(in)
+	if err != nil {
+		panic(err)
+	}
+
+	return val
+}
+
+func AtoI(in string) int {
+	return PanicErr(in, strconv.Atoi)
+}
+ 
