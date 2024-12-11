@@ -5,6 +5,11 @@ type Direction struct {
 	Horizontal int
 }
 
+type Coordinate struct {
+	X int
+	Y int
+}
+
 var DigitSet = map[int]struct{}{1: {}, 2: {}, 3: {}, 4: {}, 5: {}, 6: {}, 7: {}, 8: {}, 9: {}, 0: {}}
 var DigitSetString = map[string]struct{}{"1": {}, "2": {}, "3": {}, "4": {}, "5": {}, "6": {}, "7": {}, "8": {}, "9": {}, "0": {}}
 var DigitSetRune = map[rune]struct{}{'1': {}, '2': {}, '3': {}, '4': {}, '5': {}, '6': {}, '7': {}, '8': {}, '9': {}, '0': {}}
