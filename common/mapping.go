@@ -94,3 +94,10 @@ func AtoI(in string) int {
 	return PanicErr(in, strconv.Atoi)
 }
  
+func Prepend[T any](value T, slice []T) []T {
+	slice = append(slice, *new(T))
+	copy(slice[1:], slice)
+	slice[0] = value
+
+	return slice
+}
