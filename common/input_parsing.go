@@ -62,3 +62,23 @@ func Parse2dArrayRune(input string) ([][]rune) {
 
 	return out
 }
+
+func Parse2dArrayInt(input string) ([][]int) {
+	lines := strings.Split(input, "\n")
+
+	out := make([][]int, len(lines))
+
+	for i, line := range lines {
+		for _, value := range line {
+			val, err := strconv.Atoi(string(value))
+			if err != nil {
+				panic("Invalid parsing")
+			}
+
+			out[i] = append(out[i], val)
+		}
+	}
+
+	return out
+}
+

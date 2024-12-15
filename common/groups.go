@@ -1,6 +1,8 @@
 package common
 
-func Subset[T comparable](a, b map[T]struct{}) bool {
+type Set[T comparable] map[T]struct{}
+
+func Subset[T comparable](a, b Set[T]) bool {
 	if len(a) > len(b) {
 		return false
 	}
@@ -12,4 +14,12 @@ func Subset[T comparable](a, b map[T]struct{}) bool {
 	}
 
 	return true
+}
+
+func MergeSets[T comparable](a, b Set[T]) Set[T] {
+	for val := range b {
+		a[val] = struct{}{}
+	}
+
+	return a
 }
