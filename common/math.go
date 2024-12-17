@@ -16,6 +16,10 @@ func IntMul(left, right int) int {
 	return left * right
 }
 
+func IntDivRoundUp(left, right int) int {
+	return (left + right - 1) / right
+}
+
 func IntSubReverse(left, right int) int {
 	return right - left
 }
@@ -38,6 +42,13 @@ func IntSign(in int) int {
 
 func IntMin(a, b int) int {
 	if a < b {
+		return a
+	}
+	return b
+}
+
+func IntMax(a, b int) int {
+	if a > b {
 		return a
 	}
 	return b

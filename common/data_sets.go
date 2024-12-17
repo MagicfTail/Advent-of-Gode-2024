@@ -18,3 +18,9 @@ var DirectionList = []int{-1, 0, 1}
 
 // UP -> RIGHT -> DOWN -> LEFT
 var CardinalDirections = []Direction{{-1, 0}, {0, 1}, {1, 0}, {0, -1}}
+
+// UP-RIGHT -> DOWN-RIGHT -> DOWN-LEFT -> UP-LEFT
+var XDirections = []Direction{{-1, 1}, {1, 1}, {1, -1}, {-1, -1}}
+
+var UpDown = Set[Direction]{{-1, 0}: {}, {1, 0}: {}}
+var LeftRight = Set[Direction]{{0, 1}: {}, {0, -1}: {}}
