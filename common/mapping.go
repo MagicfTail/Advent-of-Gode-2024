@@ -19,6 +19,16 @@ func ZipMap[T, G any](left, right []T, mapFunc func(a, b T)G) ([]G, error) {
 	return out, nil
 }
 
+func Map[T, G any](in []T, mapFunc func(a T)G) ([]G) {
+	out := make([]G, 0, len(in))
+
+	for _, element := range in {
+		out = append(out, mapFunc(element))
+	}
+
+	return out
+}
+
 func MapIgnoreErr[T, G any](in []T, mapFunc func(a T)(G, error)) ([]G) {
 	out := make([]G, 0, len(in))
 
