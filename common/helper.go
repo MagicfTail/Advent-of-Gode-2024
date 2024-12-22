@@ -19,3 +19,10 @@ func PrintRuneMatrix(matrix [][]rune) {
 func Move(pos Coordinate, dir Direction) Coordinate {
 	return Coordinate{X: pos.X + dir.Horizontal, Y: pos.Y + dir.Vertical}
 }
+
+func Ternary[T any](cond bool, a, b T) T {
+	if cond {
+		return a
+	}
+	return b
+} 

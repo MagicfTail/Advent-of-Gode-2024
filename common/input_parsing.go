@@ -100,3 +100,17 @@ func ParseListInt(input string) ([]int) {
 
 	return out
 }
+
+func ParseCoordList(input string) []Coordinate {
+	lines := strings.Split(input, "\n")
+
+	coords := make([]Coordinate, 0, len(lines))
+
+	for _, line := range lines {
+		matches := strings.Split(line, ",")
+
+		coords = append(coords, Coordinate{X: AtoI(matches[0]), Y: AtoI(matches[1])})
+	}
+
+	return coords
+}
