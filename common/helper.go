@@ -26,3 +26,21 @@ func Ternary[T any](cond bool, a, b T) T {
 	}
 	return b
 } 
+
+func AddToDoubleMap[T, G, H comparable](in map[T]map[G]H, t T, g G, h H) {
+	if _, ok := in[t]; !ok {
+		in[t] = make(map[G]H)
+	}
+
+	in[t][g] = h
+}
+
+func InDoubleMap[T, G, H comparable](in map[T]map[G]H, t T, g G) bool {
+	inner, ok := in[t]
+	if !ok {
+		return false
+	}
+
+	_, ok = inner[g]
+	return ok
+}
