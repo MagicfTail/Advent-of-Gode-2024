@@ -5,14 +5,6 @@ import (
 	"strings"
 )
 
-func IsOOB(x, y, width, height int) bool {
-	if x < 0 || x >= width || y < 0 || y >= height {
-		return true
-	}
-
-	return false
-}
-
 func ParseDoubleListInt(input string) (left, right []int) {
 	lines := strings.Split(input, "\n")
 	
@@ -92,6 +84,17 @@ func Parse2dArrayInt(input string) ([][]int) {
 
 func ParseListInt(input string) ([]int) {
 	entries :=  strings.Split(input, " ")
+
+	out := make([]int, 0, len(entries))
+	for _, entry := range entries {
+		out = append(out, AtoI(entry))
+	}
+
+	return out
+}
+
+func ParseListInt2(input string) ([]int) {
+	entries :=  strings.Split(input, "\n")
 
 	out := make([]int, 0, len(entries))
 	for _, entry := range entries {

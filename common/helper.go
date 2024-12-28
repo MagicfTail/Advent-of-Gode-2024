@@ -44,3 +44,11 @@ func InDoubleMap[T, G, H comparable](in map[T]map[G]H, t T, g G) bool {
 	_, ok = inner[g]
 	return ok
 }
+
+func IsOOB(x, y, width, height int) bool {
+	if x < 0 || x >= width || y < 0 || y >= height {
+		return true
+	}
+
+	return false
+}
