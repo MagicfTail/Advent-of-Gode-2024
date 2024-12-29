@@ -37,3 +37,21 @@ func MergeSets[T comparable](a, b Set[T]) Set[T] {
 
 	return a
 }
+
+func SetToSlice[T comparable](set Set[T]) []T {
+	out := make([]T, 0, len(set))
+	for val := range set {
+		out = append(out, val)
+	}
+
+	return out
+}
+
+func CopySet[T comparable](set Set[T]) Set[T] {
+	newSet := make(Set[T], len(set))
+	for key := range set {
+		newSet[key] = struct{}{}
+	}
+
+	return newSet
+}
