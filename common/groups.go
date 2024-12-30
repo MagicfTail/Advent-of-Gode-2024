@@ -55,3 +55,12 @@ func CopySet[T comparable](set Set[T]) Set[T] {
 
 	return newSet
 }
+
+func CopyMap[T comparable, G any](in map[T]G) map[T]G {
+	newMap := make(map[T]G, len(in))
+	for key, val := range in {
+		newMap[key] = val
+	}
+
+	return newMap
+}

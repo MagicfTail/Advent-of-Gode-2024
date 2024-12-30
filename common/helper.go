@@ -52,3 +52,10 @@ func IsOOB(x, y, width, height int) bool {
 
 	return false
 }
+
+func LPad(s string,pad string, plength int) string {
+    for i:=len(s);i<plength;i++{
+        s=pad+s
+    }
+    return s
+}
